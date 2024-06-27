@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Consumo Consciente de Água</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    .container { margin-top: 50px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Consumo Consciente de Água</h1>
+    <p>Calcule seu consumo diário de água:</p>
+    <form id="water-form">
+      <div class="form-group">
+        <label for="shower-time">Tempo de banho (minutos):</label>
+        <input type="number" id="shower-time" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="flush-count">Número de descargas por dia:</label>
+        <input type="number" id="flush-count" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Calcular</button>
+    </form>
+    <div id="result" class="mt-4"></div>
+  </div>
+
+  <script>
+    document.getElementById('water-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const showerTime = document.getElementById('shower-time').value;
+      const flushCount = document.getElementById('flush-count').value;
+
+      // Exemplo simples de cálculo
+      const waterPerShower = showerTime * 9; // Supondo 9 litros por minuto
+      const waterPerFlush = flushCount * 6; // Supondo 6 litros por descarga
+
+      const totalWater = waterPerShower + waterPerFlush;
+
+      document.getElementById('result').innerHTML = `<p>Seu consumo diário de água é de ${totalWater} litros.</p>`;
+    });
+  </script>
+</body>
+</html>
